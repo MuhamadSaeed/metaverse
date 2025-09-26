@@ -12,7 +12,7 @@ const ProfilePage = () => {
       <div className="profile">
         {/* صورة المستخدم */}
         <div className="avatar">
-          <img src="src\assets\Ellipse 50.png" alt="صورة المستخدم" />
+          <img src="src\assets\Ellipse50.png" alt="صورة المستخدم" />
         </div>
 
         {/* الاسم والشارة */}
