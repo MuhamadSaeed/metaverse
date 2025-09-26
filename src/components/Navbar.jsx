@@ -30,6 +30,7 @@ const Navbar = () => {
             >   تسجيل الخروج  </button>
             <Link to="/" className="text-white sm:text-[18px] text-[12px] hover:text-[#73125C] transition-colors">الرئيسية</Link>
             <Link to="/lessons/english" className="text-white sm:text-[18px] text-[12px] hover:text-[#73125C] transition-colors">الدروس</Link>
+            <Link to="/ProfilePage" className="text-white sm:text-[18px] text-[12px] hover:text-[#73125C] transition-colors">الحساب</Link>
             {/* <Link to="/ai" className="text-white hover:text-[#73125C] transition-colors">استخدم الذكاء الاصطناعي</Link> */}
           </>
         ) : (

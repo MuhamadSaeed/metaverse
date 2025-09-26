@@ -9,7 +9,7 @@ import Signup from './pages/Signup';
 import Lessons from './pages/Lessons';
 import LessonDetails from './pages/LessonDetails';
 import Navbar from './components/Navbar';
-// import ProfilePage from './ProfilePage';
+import ProfilePage from './pages/ProfilePage';
 
 const App = () => {
   return (
@@ -23,6 +23,8 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/lessons/:subject" element={<Lessons />} />
           <Route path="/lesson/:subject/:id" element={<LessonDetails />} />
+          <Route path="/ProfilePage" element={<ProfilePage />} />
+          
 
           {/* <Route path="/profile" element={<ProfilePage />} /> */}
         </Routes>

@@ -40,3 +40,157 @@
 .read-the-docs {
   color: #888;
 }
+
+/* New styles for ProfilePage components */
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #fbeef4;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+.profile {
+  background-color: #fbeef4;
+  margin: 30px auto;
+  padding: 20px;
+  width: 80%;
+
+}
+
+.profile h2 {
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.profile p {
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.profile-header {
+ display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 12px;
+  direction: rtl;
+}
+
+.avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+ /* box-shadow: 0 0 8px rgba(0,0,0,0.1); */
+}
+/* الاسم والشارة */
+.name-badge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.name-badge h2 {
+  margin: 0;
+  color: #34495e;
+  font-size: 18px;
+}
+
+.badge {
+  background-color: #f39c12;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.ProgressBar {
+  margin: 20px 0;
+  width: 100%;
+  background-color: #ecf0f1;
+  border-radius: 20px;
+  height: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ProgressBar-fill {
+  background-color: #27ae60;
+  height: 100%;
+  border-radius: 20px 0 0 20px;
+  transition: width 0.4s ease;
+}
+
+.ProgressBar-text {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #2c3e50;
+  font-weight: bold;
+  direction: rtl;
+}
+
+
+.achievements {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  direction: rtl;
+}
+
+.achievements p {
+  background-color: #f8f8f8;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #34495e;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  font-size: 16px;
+  color: #f39c12;
+}
+
+
+
+.ContactInfo {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #7f8c8d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* محاذاة لليسار */
+  text-align: left;
+  direction: rtl;
+}
+
+.ContactInfo p {
+  margin: 5px 0;
+}
+
+
+.settings {
+  margin-top: 30px;
+
+  align-items: center;
+  gap: 10px;
+  color: #34495e;
+  font-weight: bold;
+}
