@@ -96,9 +96,17 @@ const LessonDetails = () => {
               className="w-full h-full"
             />
           ) : (
-            <div className="text-center text-[#73125C] font-semibold p-4"> ترجمة بلغة الاشارة ستتوفر قريبا </div>
+            <div className="text-center text-[#73125C] font-semibold p-4"> الترجمة التلقائية بلغة الاشارة اثناء تشغيل الفيديو ستتوفر قرييا</div>
           )}
         </div>
+      </div>
+
+      {/* txt trsnslaton  */}
+      <div className="w-full max-w-6xl mt-6 text-center bg-gray-50 border border-gray-200 rounded-xl shadow-md p-6">
+        <h2 className="text-xl font-bold text-[#73125C] mb-2">الترجمة النصية</h2>
+        <p className="text-[#73125C] font-medium">
+          الترجمة النصية التلقائية اثناء تشغيل الفيديو ستتوفر قريبا
+        </p>
       </div>
 
       <Link to={`/lessons/${subject}`}

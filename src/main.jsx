@@ -9,3 +9,7 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 document.getElementById('root').className = "w-full"
+document.getElementById('root').style.padding = "0px"
+document.getElementById('root').style.margin = "0px"
+document.getElementById('root').style.textAlign = "right"
+document.getElementById('root').style.maxWidth = "100%"
