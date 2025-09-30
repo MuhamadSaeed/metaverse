@@ -60,6 +60,9 @@ const lessons = [
   const mediaRecorderRef = useRef(null);
   // vid chuncks
   const recordedChunksRef = useRef([]);
+  // for the video of thrnsalate from text to video
+  const [signVideoUrl, setSignVideoUrl] = useState(null);
+
 
   // ===== uPLOAD HANDLERS 
   const handleUploadVideoChange = (e) => {
@@ -149,6 +152,38 @@ const lessons = [
     }
   };
 
+  // for handling translate from text to video 
+  const handleTranslateText = async () => {
+    const textInput = document.getElementById("text-input").value.trim();
+    if (!textInput) return alert("اكتب نص اولاً");
+
+    try {
+      const res = await fetch(`http://127.0.0.1:8000/sign_video?text=${encodeURIComponent(textInput)}`);
+      if (res.status === 404) {
+        alert("لا يوجد فيديو لهذه الكلمة");
+        setSignVideoUrl(null);
+        return;
+      }
+      if (!res.ok) throw new Error("خطا في الخادم");
+ 
+      const data = await res.json();
+
+      if (!data.video_url) {
+        alert("لا يوجد ترجمة لهذه الكلمة في الوقت الحالي");
+        setSignVideoUrl(null); 
+        return;
+      }
+
+      // لو موجود فيديو
+      setSignVideoUrl(`http://127.0.0.1:8000${data.video_url}`);
+    } catch (err) {
+      console.error(err);
+      alert("حدث خطا اثناء الترجمة");
+    }
+  };
+
+
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* hero sec */}
@@ -162,7 +197,7 @@ const lessons = [
             </p>
             
             <a href="#trans" className="bg-white text-[#73125C] font-bold py-3 px-6 rounded-xl shadow-md hover:text-[white] hover:bg-transparent hover:border-white border-2 border-solid border-[#73125C]  transition-colors w-fit">
-              جرب المترجم الفوري
+              جرب المترجم 
             </a>
 
           </div>
@@ -192,12 +227,30 @@ const lessons = [
       <section id="trans" className="w-full max-w-3xl mx-auto mb-16 mt-6">
         <h3 className="text-2xl font-bold text-[#73125C] mb-6 text-center">ترجمه من النص الى لغة الاشارة</h3>
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
-          <input type="text" placeholder="اكتب هنا" className="flex-1 px-4 py-3 rounded-lg border border-gray-300" />
-          <button className="bg-[#73125C] text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-[#5c0e48] transition-colors"> ترجم الان </button>
+          <input 
+            id="text-input"
+            type="text" 
+            placeholder="اكتب هنا" 
+            className="flex-1 px-4 py-3 rounded-lg border border-gray-300" 
+          />
+          <button 
+            onClick={handleTranslateText} 
+            className="bg-[#73125C] text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-[#5c0e48] transition-colors">
+            ترجم الان
+          </button>
         </div>
         <div className="bg-gray-100 text-black rounded-xl p-6 shadow-lg">
-          <div className="w-full h-64 bg-gray-300 flex items-center justify-center rounded-lg">
-            <img src={Hand} alt="translator output" className="w-24 h-24 object-contain" />
+          <div className="w-full h-64 flex items-center justify-center rounded-lg bg-black">
+            {signVideoUrl ? (
+              <video 
+                src={signVideoUrl} 
+                controls 
+                autoPlay 
+                className="w-full h-full object-contain rounded-lg"
+              />
+            ) : (
+              <p className="text-gray-500">لم يتم اختيار فيديو بعد</p>
+            )}
           </div>
         </div>
       </section>

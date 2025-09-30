@@ -45,7 +45,7 @@ const Navbar = () => {
         )}
       </div>
       <div className="text-2xl font-bold text-white ">
-        <Link to="/" className="text-white hover:text-[#73125C]">MetaVerse</Link>
+        <Link to="/" className="text-white hover:text-[#73125C]">SenseVerse</Link>
       </div>
     </nav>
   );
